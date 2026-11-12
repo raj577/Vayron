@@ -61,10 +61,10 @@ function fmtStep(s){return String(s==null?'':s).split(/(`[^`]+`)/g).map(function
 
 var SESS=jget(SK);if(SESS&&(!SESS.exp||SESS.exp<Date.now()||!B(SESS.id))){jdel(SK);SESS=null}
 var FEED_BLOCKED=false;
-var COMM={discord:'https://discord.gg/UQvfzWBkAV',telegram:'https://t.me/ABCD_AI_community'};
+var COMM={discord:'https://discord.gg/P9gXcNWGQ',telegram:'https://t.me/thechartscrncher'};
 var DCI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7zM8 15.3c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.5 8 10.5s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg>';
 var TGI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg>';
-function commHTML(){return'<div class="comm"><b>Join the ABCD_AI community</b><a class="cbtn dc" href="'+COMM.discord+'" target="_blank" rel="noopener noreferrer">'+DCI+'Discord</a><a class="cbtn tg" href="'+COMM.telegram+'" target="_blank" rel="noopener noreferrer">'+TGI+'Telegram</a></div>'}
+function commHTML(){return'<div class="comm"><b>Join the Vayron AI community</b><a class="cbtn dc" href="'+COMM.discord+'" target="_blank" rel="noopener noreferrer">'+DCI+'Discord</a><a class="cbtn tg" href="'+COMM.telegram+'" target="_blank" rel="noopener noreferrer">'+TGI+'Telegram</a></div>'}
 /* ---------- sample mode ("See a sample") ----------
    Without a broker session a visitor may open the dashboards with a static sample set served by Pages from
    /sample/<dir>/ (no Worker, R2 or D1). data.vayron.com NSE files are never requested in sample mode.
@@ -530,7 +530,7 @@ function bstat(id,m,ok,kind){try{if(!/^(fyers|kite|upstox|angelone|dhan)$/.test(
 function saveSession(id,key,token,extra){var was=hasBrokerSession();try{sessionStorage.removeItem(SMK)}catch(e){}FEED_BLOCKED=false;clearLastErr();SESS={id:id,key:key,token:token,exp:expFor(id),at:Date.now()};if(extra){for(var k in extra)SESS[k]=extra[k]}jset(SK,SESS);syncBlur();bstat(id,SESS.via,1);
   /* page was gated (no data requested yet): reload so the dashboards fetch their data now */
   if(!was&&!/^\/broker\/callback/.test(location.pathname)&&(gatedPath()||homePath()))setTimeout(function(){location.reload()},400)}
-function cbComm(){return'<p style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center"><b>Join the ABCD_AI community:</b> <a href="'+COMM.discord+'" target="_blank" rel="noopener noreferrer" style="background:#5865F2;color:#fff;padding:6px 12px;border-radius:999px;font-weight:600;text-decoration:none">Discord</a> <a href="'+COMM.telegram+'" target="_blank" rel="noopener noreferrer" style="background:#229ED9;color:#fff;padding:6px 12px;border-radius:999px;font-weight:600;text-decoration:none">Telegram</a></p>'}
+function cbComm(){return'<p style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center"><b>Join the Vayron AI community:</b> <a href="'+COMM.discord+'" target="_blank" rel="noopener noreferrer" style="background:#5865F2;color:#fff;padding:6px 12px;border-radius:999px;font-weight:600;text-decoration:none">Discord</a> <a href="'+COMM.telegram+'" target="_blank" rel="noopener noreferrer" style="background:#229ED9;color:#fff;padding:6px 12px;border-radius:999px;font-weight:600;text-decoration:none">Telegram</a></p>'}
 function handleCallback(){
   var q=new URLSearchParams(CBQ),out=document.getElementById('bk-cb');
   var pend=jget(PK,sessionStorage);jdel(PK,sessionStorage);
