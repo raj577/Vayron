@@ -1,0 +1,9 @@
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /broker/callback/
+Sitemap: https://vayron.com/sitemap.xml

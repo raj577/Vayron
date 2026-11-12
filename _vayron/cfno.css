@@ -1,0 +1,74 @@
+/* Vayron crypto & gold derivatives page — matches the order-flow observatory look */
+.cfx{--up:#35e7a0;--dn:#ff597d;--mu:#899ba4;--ln:#203b39;--bg:#070e12;color:#e6f4f0;font:13px/1.5 var(--font-inter,Inter,Arial,sans-serif)}
+.cfx *{box-sizing:border-box}
+.cfx-hero{background:var(--bg);border:1px solid #24413d;border-radius:18px;padding:22px 24px;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;background-image:radial-gradient(ellipse at 15% 0,#10352c88,transparent 65%)}
+.cfx-kicker{font:10px/1.5 ui-monospace,monospace;letter-spacing:2px;color:var(--up);text-transform:uppercase}
+.cfx h1{font-size:26px;letter-spacing:-.7px;font-weight:650;margin:2px 0 4px}
+.cfx-sub{color:var(--mu);font-size:12px;max-width:720px}
+.cfx-assets{display:flex;gap:8px;flex-wrap:wrap}
+.cfx-asset{min-width:148px;text-align:left;background:#0c1c1a;border:1px solid #24413d;border-radius:10px;padding:9px 12px;color:#e6f4f0;cursor:pointer}
+.cfx-asset b{display:block;font:600 13px ui-monospace,monospace;letter-spacing:1px}
+.cfx-asset span{font:12px ui-monospace,monospace;color:#c9dbd3}
+.cfx-asset.is-on{border-color:var(--up);box-shadow:0 0 0 1px #35e7a055 inset;background:#0f2a23}
+.cfx-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;overflow-x:auto}
+.cfx-tab{border:1px solid var(--hairline,#2a3a3a);background:var(--surface,#0c1416);color:inherit;border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer;white-space:nowrap}
+html.light .cfx-tab{background:#fff;color:#1b2a2a;border-color:#d8e0e0}
+.cfx-tab.is-on{background:#0f2a23!important;color:#bfffe3!important;border-color:var(--up)!important}
+.cfx-panel{background:var(--bg);border:1px solid #24413d;border-radius:18px;padding:20px 22px;margin-bottom:14px}
+.cfx-panel h2{font-size:18px;font-weight:650;letter-spacing:-.3px;margin:2px 0 10px}
+.cfx-panel h3{font-size:13px;font-weight:600;margin:16px 0 8px;color:#cfe3da}
+.cfx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));border:1px solid #244037;border-radius:8px;overflow:hidden}
+.cfx-m{padding:10px 12px;border-right:1px solid #20372f;border-bottom:1px solid #20372f;background:#0d1c1b;min-width:0}
+.cfx-m small{display:block;color:var(--mu);font-size:10px}
+.cfx-m b{font:14px/1.6 ui-monospace,monospace;font-weight:500;color:#dfede4;word-break:break-word}
+.cfx-m em{display:block;font-style:normal;font-size:10px;color:#6f9284}
+.cfx-up{color:var(--up)!important}.cfx-dn{color:var(--dn)!important}.cfx-mu{color:var(--mu)}
+.cfx-note{color:var(--mu);font-size:11px;margin-top:10px}
+.cfx-note a{color:#8ff0c6}
+.cfx-tbl{width:100%;border-collapse:collapse;font:12px ui-monospace,monospace}
+.cfx-tbl th{color:var(--mu);font-weight:500;text-align:right;padding:6px 8px;border-bottom:1px solid #20372f;white-space:nowrap}
+.cfx-tbl td{text-align:right;padding:6px 8px;border-bottom:1px solid #15292a;white-space:nowrap}
+.cfx-tbl th:first-child,.cfx-tbl td:first-child{text-align:left}
+.cfx-scroll{overflow-x:auto}
+.cfx-chart{width:100%;height:auto;display:block;background:#08141399;border:1px solid #1b302d;border-radius:8px}
+.cfx-chart text{font:10px ui-monospace,monospace;fill:#7f9c90}
+.cfx-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cfx-row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.cfx-row label{display:flex;flex-direction:column;font-size:11px;color:var(--mu);gap:3px}
+.cfx-row select,.cfx-row input{height:34px;background:#0c1c1a;color:#dcece5;border:1px solid #2a4a43;border-radius:6px;padding:0 8px;min-width:90px}
+.cfx-btn{height:34px;padding:0 16px;border-radius:6px;background:var(--up);color:#032016;border:0;font-weight:650;cursor:pointer}
+.cfx-btn:disabled{opacity:.5}
+.cfx-pill{display:inline-block;font:10px ui-monospace,monospace;border:1px solid #2c5a4c;color:#9fe9c8;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.cfx-loading{color:var(--mu);padding:20px 0}
+.cfx-live{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.cfx-lv{background:#0d1c1b;border:1px solid #20372f;border-radius:8px;padding:10px 12px}
+.cfx-lv .bar{height:8px;border-radius:4px;background:var(--dn);overflow:hidden;margin:6px 0}
+.cfx-lv .bar i{display:block;height:100%;background:var(--up)}
+.cfx-disc{font-size:11px;color:var(--mu);border:1px dashed #2a4a43;border-radius:8px;padding:8px 12px;margin-top:12px}
+@media(max-width:760px){.cfx-two{grid-template-columns:1fr}.cfx-hero{padding:16px}.cfx h1{font-size:21px}.cfx-asset{min-width:0;flex:1 1 30%}.cfx-panel{padding:14px 12px}.cfx-grid{grid-template-columns:1fr 1fr}}
+
+.tob-forming-note{display:block;font-size:8px;letter-spacing:.3px;opacity:.9;margin-top:2px}
+
+.tob-panel-title{white-space:normal;overflow-wrap:anywhere}
+
+@keyframes tob-ob-fade{to{opacity:0}}
+g.tob-zone-fade,rect.tob-zone-fade{animation:tob-ob-fade 2s ease forwards}
+@media(prefers-reduced-motion:reduce){g.tob-zone-fade,rect.tob-zone-fade{animation:none;opacity:.35}}
+/* crypto-first home: secondary NSE section */
+.cfx-nse{display:block;max-width:1800px;margin:8px auto 28px;padding:0 12px}
+@media (min-width:640px){.cfx-nse{padding:0 24px}}
+.cfx-nse-in{background:var(--bg);border:1px solid #24413d;border-radius:18px;padding:20px 22px}
+.cfx-nse h2{font-size:19px;font-weight:650;letter-spacing:-.3px;margin:2px 0 6px}
+.cfx-nse-head{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+.cfx-nse-cta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.cfx-nse-btn{background:#35e7a0;color:#04221a;border:0;border-radius:999px;padding:9px 16px;font-weight:650;font-size:13px;cursor:pointer}
+.cfx-nse-btn:hover{filter:brightness(1.08)}
+.cfx-nse-ghost{color:#bfffe3;border:1px solid #2c5a4f;border-radius:999px;padding:8px 14px;text-decoration:none;font-size:13px}
+.cfx-nse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:16px}
+.cfx-nse-grid a{display:block;background:#0c1c1a;border:1px solid #203b39;border-radius:12px;padding:11px 13px;color:#e6f4f0;text-decoration:none}
+.cfx-nse-grid a:hover{border-color:#35e7a0}
+.cfx-nse-grid b{display:block;font-size:13px}
+.cfx-nse-grid span{display:block;color:var(--mu);font-size:12px;margin-top:2px}
+.cfx-nse-legal{color:var(--mu);font-size:11.5px;margin:14px 0 0;line-height:1.55}
+.cfx-nse-legal a{color:#9fdcc6}
+@media (max-width:1023px){header nav .cfx-sep{display:none!important}}

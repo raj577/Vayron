@@ -1,0 +1,128 @@
+/* Vayron · broker gate.
+   html.vayron-gated  = market dashboard page, no broker session: the page's own content is hidden and the
+                        "Connect your broker" panel (#vayron-gate, from /broker/live.js) is shown instead.
+                        NSE data files are never requested in this state (fetch/XHR guard in live.js).
+   html.vayron-nosess = no broker session on any page: NSE-only blocks (e.g. the homepage pulse teaser) are hidden.
+   html.vayron-blur   = fallback only: a connected session whose live feed was refused. */
+html.vayron-gated main,html.vayron-gated #main,html.vayron-gated #main-content{display:none!important}
+html.vayron-nosess:not(.vayron-sample) .vayron-nse{display:none!important}
+html:not(.vayron-nosess) #vayron-gate-inline{display:none!important}
+/* sample mode: room for the fixed sample banner */
+html.vayron-sample body,html.vayron-bkbar body{padding-top:40px!important}
+html.vayron-sample header.sticky,html.vayron-sample body>header,html.vayron-bkbar header.sticky,html.vayron-bkbar body>header{top:40px!important}
+
+html.vayron-blur main .num,
+html.vayron-blur main .tabular-nums,
+html.vayron-blur main .kpi,
+html.vayron-blur #mood,
+html.vayron-blur #vix,
+html.vayron-blur #breadth,
+html.vayron-blur #flow,
+html.vayron-blur #headline,
+html.vayron-blur #idx,
+html.vayron-blur #sectors .up,
+html.vayron-blur #sectors .dn,
+html.vayron-blur #idx .up,
+html.vayron-blur #idx .dn,
+html.vayron-blur main .tob-price,
+html.vayron-blur main .tob-chg,
+html.vayron-blur main .tob-panel-price,
+html.vayron-blur main .tob-metrics,
+html.vayron-blur main .tob-positive,
+html.vayron-blur main .tob-negative,
+html.vayron-blur main .tob-chart,
+html.vayron-blur main .tob-card-chart,
+html.vayron-blur main .tob-chart-expanded,
+html.vayron-blur main .tob-zones,
+html.vayron-blur main canvas{
+  filter:blur(5px)!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+}
+/* Keep chart drag/zoom from leaking readable axis values via tooltips while blurred */
+html.vayron-blur main canvas,
+html.vayron-blur main .tob-chart,
+html.vayron-blur main .tob-card-chart,
+html.vayron-blur main .tob-chart-expanded{
+  pointer-events:none;
+}
+/* Soft veil on order-flow SVG so price/chg text in the graph is unreadable; stock names stay roughly visible under light blur of whole flow numbers via metric overlays */
+html.vayron-blur main .tob-flow{
+  filter:blur(3px);
+  user-select:none;
+}
+
+/* ---- Never blur Crypto / Academy / Buy-me-a-coffee (not NSE cash/F&O data) ---- */
+html.vayron-noblur,
+html.vayron-noblur main .num,
+html.vayron-noblur main .tabular-nums,
+html.vayron-noblur main .kpi,
+html.vayron-noblur main canvas{
+  filter:none!important;
+  user-select:auto!important;
+  pointer-events:auto!important;
+}
+html.vayron-noblur #vayron-blur-hint{display:none!important}
+
+/* Crypto widgets/cards embedded on other pages (e.g. home/pulse) stay clear */
+html.vayron-blur main [data-vayron-section="crypto"],
+html.vayron-blur main [data-vayron-section="crypto"] .num,
+html.vayron-blur main [data-vayron-section="crypto"] .tabular-nums,
+html.vayron-blur main [data-vayron-section="crypto"] canvas,
+html.vayron-blur main a[href="/crypto/"] .num,
+html.vayron-blur main [class*="crypto"] .num,
+html.vayron-blur main [class*="crypto"] canvas{
+  filter:none!important;
+  user-select:auto!important;
+  pointer-events:auto!important;
+}
+
+/* Buy me a coffee / chai support block — QR + button stay crisp */
+html.vayron-blur main img[src*="bmc_qr"],
+html.vayron-blur main img[alt*="Buy me a coffee"],
+html.vayron-blur main img[alt*="buy me a coffee"],
+html.vayron-blur main .sp-cup,
+html.vayron-blur main [data-vayron-section="coffee"],
+html.vayron-blur main [data-vayron-section="coffee"] .num,
+html.vayron-blur main [data-vayron-section="coffee"] canvas{
+  filter:none!important;
+  user-select:auto!important;
+  pointer-events:auto!important;
+}
+
+/* Hint banner */
+#vayron-blur-hint{
+  display:none;
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:34;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:7px 14px;
+  font:600 12.5px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  background:rgba(15,23,42,.92);
+  color:#f8fafc;
+  border-bottom:1px solid rgba(148,163,184,.35);
+  cursor:pointer;
+  text-align:center;
+}
+html.vayron-blur #vayron-blur-hint{display:flex}
+html.vayron-noblur #vayron-blur-hint{display:none!important}
+#vayron-blur-hint b{color:#93c5fd;font-weight:700}
+#vayron-blur-hint:hover{background:rgba(15,23,42,.98)}
+@media (prefers-color-scheme:light){
+  #vayron-blur-hint{background:rgba(15,23,42,.9)}
+}
+/* Push sticky headers down a bit when the hint is visible so content isn't covered */
+html.vayron-blur body{scroll-padding-top:40px}
+html.vayron-blur header.sticky,
+html.vayron-blur body>header{
+  top:36px!important;
+}
+html.vayron-noblur header.sticky,
+html.vayron-noblur body>header{
+  top:0!important;
+}
+
+html.vayron-sample .tob-session{visibility:hidden!important}

@@ -1,0 +1,16 @@
+{
+ "mode": "demo",
+ "_how_to_switch": "On/after 2026-12-09 copy /workspace/vayron_frozen/2026-11-09/data/* (NSE files) into site_adsense/sample/real/ and set mode to \"real\". live.js refuses real mode before real.not_before and falls back to demo.",
+ "demo": {
+  "dir": "/sample/data/",
+  "label": "example data",
+  "banner": "Example data \u00b7 not real/live market prices"
+ },
+ "real": {
+  "dir": "/sample/real/",
+  "label": "data from 9 Nov 2026",
+  "banner": "Sample \u00b7 data from 9 Nov 2026 (\u226530 days old, for education)",
+  "date": "2026-11-09",
+  "not_before": "2026-12-09"
+ }
+}
